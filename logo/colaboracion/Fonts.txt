@@ -1,0 +1,9 @@
+Fonts used in this design:
+
+Font: Oswald
+Author: Vernon Adams,Kalapi Gajjar,Cyreal
+Url: https://fonts.google.com/specimen/Oswald
+
+Font: Montserrat
+Author: Julieta Ulanovsky,Sol Matas,Juan Pablo del Peral,Jacques Le Bailly
+Url: https://fonts.google.com/specimen/Montserrat

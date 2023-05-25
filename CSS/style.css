@@ -1,0 +1,478 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Ubuntu:wght@300&display=swap");
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Ubuntu";
+  overflow-x: hidden;
+}
+
+.navbar {
+  background-color: #f0f0d860;
+}
+
+.navbar-brand img {
+  width: 300px;
+  /* height: 75px; */
+}
+
+#logo-footer {
+  width: 400px;
+  /* height: 75px; */
+}
+
+#form-bienvenido img {
+  width: 400px;
+  height: 7px;
+}
+
+.navbar .nav-link.active {
+  color: #ff8712 !important;
+}
+
+.navbar .nav-link {
+  position: relative;
+  color: #4acabb;
+  font-weight: bold;
+  transition: 1s ease;
+}
+
+.navbar .nav-link:focus {
+  color: #4acabb !important;
+}
+
+.navbar .nav-link:hover {
+  color: #ff8712;
+  transform: scale(1.15);
+}
+
+.navbar .nav-link.active::before {
+  width: 80%;
+}
+
+.navbar .nav-link::before {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #ff8712;
+  transition: 1s ease;
+}
+
+.navbar .nav-link:hover::before {
+  width: 80%;
+}
+
+.dropdown-menu {
+  border: 0;
+  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  padding-top: 0;
+  padding-bottom: 0;
+  border-radius: 0;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #ff8712;
+  color: white !important;
+}
+
+form input:not(".form-check-input") {
+  border: 1px solid #4acabb !important;
+  background: none !important;
+}
+
+form input:not(".form-check-input"):focus {
+  box-shadow: none !important;
+  border: 1px solid #ff8712 !important;
+}
+
+#formulario-ingresar input {
+  border: 1px solid #ff8712 !important;
+}
+
+#formulario-ingresar input:focus {
+  outline: none;
+}
+
+#formulario-ingresar button {
+  background-color: #ff8712;
+  color: #fff;
+  padding: 8px 20px !important;
+}
+
+#formulario-ingresar button:hover {
+  transform: scale(1.15);
+  border-radius: 25px;
+}
+
+form button {
+  border: 1px solid #ff8712 !important;
+  transition: 800ms ease !important;
+}
+
+form button:hover {
+  background-color: #ff8712 !important;
+  outline: #ff8712 !important;
+  color: white !important;
+}
+
+#btn-conectar button {
+  border: 1px solid #ff8712 !important;
+  transition: 800ms ease !important;
+  color: #4acabb !important;
+}
+
+.btn-carrera {
+  display: inline-block;
+  border: 1px solid #ff8712 !important;
+  transition: 800ms ease !important;
+  color: #4acabb !important;
+  background-color: #ff8712 !important;
+  color: white !important;
+  border-radius: 5px;
+  padding: 6px;
+}
+
+.btn-carrera:hover {
+  transform: scale(1.1);
+}
+
+#btn-conectar:hover button {
+  background-color: #ff8712 !important;
+  outline: #ff8712 !important;
+  color: white !important;
+  transform: translateX(-10px);
+}
+
+#carouselExampleAutoplaying .carousel-item img {
+  height: 600px;
+  object-fit: cover;
+  filter: brightness(0.4);
+}
+
+h1 {
+  font-family: "DM Serif Display";
+  color: #ff8712;
+  font-weight: 700;
+}
+
+h2,
+h4 {
+  font-family: "Ubuntu";
+  color: #4acabb;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+#carreras img {
+  margin-bottom: 10px;
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 800ms ease;
+}
+
+#carreras img:hover {
+  filter: brightness(0.8);
+  transform: scale(1.02);
+}
+
+#carreras a {
+  text-decoration: none;
+  padding: 8px !important;
+  border-radius: 5px;
+  border: none;
+  background-color: #ff8712;
+  color: white !important;
+  border: 1px solid #ff8712 !important;
+  transition: 800ms ease !important;
+}
+
+.carrera-lordan:hover {
+  font-size: 18px;
+  background-color: #4acabb;
+}
+
+#excelencia img {
+  height: 200px;
+}
+
+#video video {
+  height: 90vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+#seccion-footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  margin-top: 150px;
+}
+
+#seccion-footer .redes-sociales a {
+  text-decoration: none;
+  color: white;
+}
+
+#seccion-footer .redes-sociales i {
+  background-color: #ff8712;
+  padding: 8px 10px;
+  border-radius: 50%;
+  font-size: 18px;
+}
+
+.contacto a {
+  text-decoration: none;
+  color: white;
+}
+
+.contacto i {
+  background-color: #ff8712;
+  padding: 8px 10px;
+  border-radius: 50%;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-container i {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  color: #ff8712;
+}
+
+.form-content .input-container input:not(".form-check-input") {
+  outline: none;
+  padding-left: 30px !important;
+}
+
+.btn-inscripcion button {
+  margin: 0 auto;
+  padding: 5px 25px;
+  background: none;
+  border-radius: 5px;
+  color: gray;
+}
+
+.btn-inscripcion button:hover {
+  transform: scale(1.1) translateX(5px);
+}
+
+.form-content input:not(".form-check-input") {
+  outline: none;
+  padding: 5px 10px !important;
+}
+
+.form-content button {
+  padding: 8px 20px !important;
+  /* width: 80%; */
+}
+
+#hero-ingenieria img {
+  height: 550px;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(0.4);
+}
+
+#hero-ingenieria h1 {
+  color: #ff8712;
+}
+
+#hero-ingenieria p {
+  color: #fff;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+#hero-ingenieria p small {
+  font-size: 12px;
+}
+
+#seccion-ingenieria h1 {
+  margin-top: 40px;
+  margin-bottom: 80px !important;
+}
+
+.imagen-ingenieros img {
+  height: 400px;
+  border-radius: 10px;
+  transition: 1s ease;
+}
+
+.imagen-ingenieros:hover img {
+  filter: brightness(0.4);
+}
+
+.descripcion-civil {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+}
+
+#numero-personal h1 {
+  font-size: 50px;
+}
+
+#numero-personal h1 span {
+  font-size: 30px;
+  color: #4acabb;
+}
+
+#laboratorios img {
+  height: 250px;
+  width: 100%;
+  transition: 1s ease;
+}
+
+#laboratorios h3 {
+  color: #4acabb;
+  font-family: "DM Serif Display";
+}
+
+.laboratorio-civil div {
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.laboratorio-civil:hover img {
+  transform: scale(1.15);
+  filter: brightness(0.5);
+}
+
+/***************************************
+dashboard
+***************************************/
+/* .buscar-alumno {
+  border: 1px solid #ff8712;
+  font-family: "Ubuntu";
+  padding: 3px 8px;
+  border-radius: 5px;
+  color: #4acabb;
+  font-size: 15px;
+  transition: 900ms ease;
+}
+
+.buscar-alumno:hover {
+  background-color: #ff8712;
+  color: #fff;
+}
+
+.buscar-alumno:hover i {
+  color: #fff;
+}
+
+.buscar-alumno i {
+  color: #ff8712;
+  transition: 900ms ease;
+} */
+
+.buscar-alumno button {
+  border: 1px solid #ff8712;
+  background: none !important;
+  font-family: "Ubuntu";
+  padding: 3px 8px;
+  border-radius: 5px;
+  color: #4acabb;
+  font-size: 15px;
+  transition: 900ms ease;
+}
+
+.buscar-alumno button:hover {
+  border: 1px solid #ff8712;
+  background-color: #ff8712 !important;
+}
+
+.buscar-alumno button:active {
+  border: 0 !important;
+}
+
+.buscar-alumno button i {
+  color: #ff8712;
+  transition: 900ms ease;
+}
+
+.buscar-alumno button:hover i {
+  color: #fff;
+}
+
+.card-body div input {
+  position: relative;
+  border: 1px solid #4acabb;
+  padding: 3px 0 3px 5px;
+  border-radius: 8px;
+  color: gray !important;
+}
+
+.card-body div input:focus {
+  outline: none;
+}
+
+.card-body div i {
+  position: absolute;
+}
+
+#dashboard .nav {
+  position: sticky;
+  top: 95px;
+  background-color: #fff;
+  padding: 20px 0;
+}
+
+#formulario-alta-alumno input {
+  padding-left: 30px !important;
+}
+
+#guardar-grupo input,
+#formulario-asignar-materias input,
+#formulario-asignar-calificacion input {
+  padding-left: 32px !important;
+}
+
+#guardar-grupo .btn-secondary,
+#formulario-alta-alumno .btn-secondary,
+#formulario-asignar-materias .btn-secondary,
+#formulario-asignar-calificacion .btn-secondary {
+  background-color: #4acabb;
+  border: 1px solid #4acabb !important;
+}
+
+#guardar-grupo .btn-secondary:hover,
+#formulario-alta-alumno .btn-secondary:hover,
+#formulario-asignar-materias .btn-secondary:hover,
+#formulario-asignar-calificacion .btn-secondary:hover {
+  background-color: #4acabb !important;
+  border: 1px solid #4acabb !important;
+  transform: scale(1.1) translateX(-5px);
+}
+
+#guardar-grupo .btn-primary,
+#formulario-alta-alumno .btn-primary,
+#formulario-asignar-materias .btn-primary,
+#formulario-asignar-calificacion .btn-primary {
+  background-color: #ff8712;
+}
+
+#guardar-grupo .btn-primary:hover,
+#formulario-alta-alumno .btn-primary:hover,
+#formulario-asignar-materias .btn-primary:hover,
+#formulario-asignar-calificacion .btn-primary:hover {
+  transform: scale(1.1) translateX(5px);
+}

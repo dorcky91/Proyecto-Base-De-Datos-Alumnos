@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Base De Datos De Alumnos</title>
+    <link
+      rel="shortcut icon"
+      href="logo/logo-universidad-lordan.ico"
+      type="image/x-icon" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="./CSS/style.css" />
+  </head>
+  <body>
+    <!-- Barra De Navegación -->
+    <nav
+      id="barra-navegacion"
+      class="navbar border-bottom sticky-top bg-white navbar-expand-lg shadow-sm py-3">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"
+          ><img loading="lazy" src="logo/logo-universidad-lordan.png" alt=""
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav mx-auto text-uppercase">
+            <li class="nav-item">
+              <a
+                class="nav-link me-5 ps-0 fw-bolder"
+                aria-current="page"
+                href="index.html"
+                >Inicio</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link me-5 ps-0 dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Carreras
+              </a>
+              <ul class="dropdown-menu text-capitalize">
+                <li>
+                  <a class="dropdown-item" href="ingenieriacivil.html"
+                    >Ingeniería Civil</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Imagen y Cosmetología</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Diseño Web</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-5 ps-0" href="#">Contacto</a>
+            </li>
+          </ul>
+          <div class="dropdown">
+            <div
+              class="d-flex align-items-center"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              style="cursor: pointer">
+              <img
+                src="https://images.pexels.com/photos/819530/pexels-photo-819530.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                height="35"
+                width="35"
+                class="object-fit-cover rounded-circle"
+                alt="" />
+              <div class="ms-2">
+                <small class="d-block">Hola sensei</small>
+                <small
+                  class="d-block"
+                  style="margin-top: -4px"
+                  id="nombreMaestro"
+                  >Maestro</small
+                >
+              </div>
+            </div>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Mi perfil</a></li>
+              <li><a class="dropdown-item" href="#">Materías</a></li>
+              <li>
+                <a class="dropdown-item" href="index.html">Cerrar sesión</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div id="dashboard" class="container py-4">
+      <!-- Seccion Alumnos -->
+      <section>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="fw-bold">Lista Alumnos</h5>
+          <!-- <a class="text-decoration-none buscar-alumno" href="#"
+            ><i class="fa-solid fa-filter me-2"></i>Buscar Alumno...</a
+          > -->
+          <div class="text-center">
+            <div class="buscar-alumno">
+              <button
+                class="btn btn-primary"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseWidthExample"
+                aria-expanded="false"
+                aria-controls="collapseWidthExample">
+                <i class="fa-solid fa-filter"></i>
+                Buscar Alumno...
+              </button>
+            </div>
+          </div>
+          <button
+            onclick="abrirModalAlumno()"
+            class="btn btn-outline-success btn-sm">
+            Agregar alumno
+          </button>
+        </div>
+        <div>
+          <div class="collapse collapse-horizontal" id="collapseWidthExample">
+            <div class="card card-body border-0 mb-4">
+              <div
+                class="d-flex justify-content-between align-items-center input-container">
+                <div>
+                  <i class="fa-brands fa-modx"></i>
+                  <input
+                    class="me-5"
+                    type="text"
+                    placeholder="Buscar Por Matrícula..." />
+                </div>
+                <div>
+                  <input
+                    class="me-5"
+                    type="text"
+                    placeholder="Buscar Por nombre..." />
+                </div>
+                <div>
+                  <input type="text" placeholder="Buscar Por Apellido..." />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table
+            id="tabla-lista-alumnos"
+            class="table table-hover align-middle">
+            <thead>
+              <tr>
+                <th scope="col">Matrícula</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+      <br />
+      <br />
+      <br />
+
+      <!-- Seccion Materias -->
+      <section>
+        <h5 class="fw-bold mb-4">Lista Materias</h5>
+        <div class="table-responsive">
+          <table
+            id="tabla-lista-materias"
+            class="table table-hover align-middle">
+            <thead>
+              <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Alumno</th>
+                <th scope="col">Calificación</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+      <br /><br /><br />
+
+      <!-- Seccion Grupos -->
+      <section>
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="fw-bold mb-4">Lista Grupos</h5>
+          <button
+            class="btn btn-outline-success btn-sm"
+            data-bs-toggle="modal"
+            data-bs-target="#modal-grupo">
+            Agregar grupo
+          </button>
+        </div>
+        <div class="table-responsive">
+          <table id="tabla-lista-grupos" class="table table-hover align-middle">
+            <thead>
+              <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Alumno</th>
+                <th scope="col">Promedio</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <!-- Modal Agregar Alumno -->
+    <div
+      class="modal fade"
+      id="modal-alumno"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <form id="formulario-alta-alumno" class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Agregar alumno
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Seccion Formato Alumno -->
+            <div class="mb-3">
+              <label for="matricula-alumno" class="form-label">Matrícula</label>
+              <div class="input-container">
+                <i class="fa-brands fa-modx"></i>
+                <input
+                  id="matricula-alumno"
+                  class="p-1 rounded-4 form-control"
+                  type="text"
+                  placeholder="Matricula"
+                  required />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="nombre-alumno" class="form-label">Nombre</label>
+              <div class="input-container">
+                <i class="fa-solid fa-user"></i>
+                <input
+                  id="nombre-alumno"
+                  class="p-1 rounded-4 form-control"
+                  type="text"
+                  placeholder="Nombre"
+                  required />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="apellido-alumno" class="form-label">Apellido</label>
+              <div class="input-container">
+                <i class="fa-solid fa-user"></i>
+                <input
+                  id="apellido-alumno"
+                  class="p-1 rounded-4 form-control"
+                  type="text"
+                  placeholder="Apellido"
+                  required />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="edad-alumno" class="form-label">Edad</label>
+              <div class="input-container">
+                <i class="fa-solid fa-calendar"></i>
+                <input
+                  id="edad-alumno"
+                  class="p-1 rounded-4 form-control"
+                  type="number"
+                  min="18"
+                  placeholder="Edad"
+                  required />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal">
+              Cerrar
+            </button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Agregar Materia -->
+    <div
+      class="modal fade"
+      id="modal-materia"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <form id="formulario-asignar-materias" class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Agregar materia
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Seccion Formato Materia -->
+            <input type="hidden" id="trampa-matricula" />
+            <div class="mb-3">
+              <label for="codigo-materia" class="form-label">Código</label>
+              <div class="input-container">
+                <i class="fa-solid fa-book-open"></i>
+                <input
+                  id="codigo-materia"
+                  class="p-1 rounded-4 form-control"
+                  type="text"
+                  placeholder="Código"
+                  required />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="nombre-materia" class="form-label">
+                Nombre materia
+              </label>
+              <div class="input-container">
+                <i class="fa-brands fa-elementor"></i>
+                <input
+                  id="nombre-materia"
+                  class="p-1 rounded-4 form-control"
+                  type="text"
+                  placeholder="Nombre materia"
+                  required />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal">
+              Cerrar
+            </button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Calificación Alumno -->
+    <div
+      class="modal fade"
+      id="modal-calificaciones"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <form id="formulario-asignar-calificacion" class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Agregar calificaciones
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Seccion Formato Alumno -->
+            <div class="row gy-3">
+              <div class="col-sm-6">
+                <label for="matricula-alumno-calif" class="form-label"
+                  >Matrícula</label
+                >
+                <div class="input-container">
+                  <i class="fa-brands fa-modx"></i>
+                  <input
+                    id="matricula-alumno-calif"
+                    class="p-1 rounded-4 form-control"
+                    type="text"
+                    placeholder="Matrícula alumno"
+                    required
+                    disabled
+                    readonly />
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <label for="nombre-alumno-calif" class="form-label"
+                  >Alumno</label
+                >
+                <div class="input-container">
+                  <i class="fa-solid fa-user"></i>
+                  <input
+                    id="nombre-alumno-calif"
+                    class="p-1 rounded-4 form-control"
+                    type="text"
+                    placeholder="Nombre alumno"
+                    required
+                    disabled
+                    readonly />
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <label for="cod-materia-alumno-calif" class="form-label"
+                  >Código materia</label
+                >
+                <div class="input-container">
+                  <i class="fa-solid fa-book-open"></i>
+                  <input
+                    id="cod-materia-alumno-calif"
+                    class="p-1 rounded-4 form-control"
+                    type="text"
+                    placeholder="Código materia"
+                    required
+                    disabled
+                    readonly />
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <label for="materia-alumno-calif" class="form-label"
+                  >Materia</label
+                >
+                <div class="input-container">
+                  <i class="fa-brands fa-uncharted"></i>
+                  <input
+                    id="materia-alumno-calif"
+                    class="p-1 rounded-4 form-control"
+                    type="text"
+                    placeholder="Nombre materia"
+                    required
+                    disabled
+                    readonly />
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <label for="calificacion-alumno" class="form-label"
+                  >Calificación</label
+                >
+                <div class="input-container">
+                  <i class="fa-sharp fa-solid fa-book"></i>
+                  <input
+                    id="calificacion-alumno"
+                    class="p-1 rounded-4 form-control"
+                    type="number"
+                    min="0"
+                    max="100"
+                    maxlength="3"
+                    placeholder="Calificación"
+                    required />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal">
+              Cerrar
+            </button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Agregar Grupo -->
+    <div
+      class="modal fade"
+      id="modal-grupo"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Agregar grupo
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Seccion Formato Grupo -->
+            <form
+              id="guardar-grupo"
+              onsubmit="guardarGrupo(event)"
+              class="form-content">
+              <div class="mb-3">
+                <label for="codigo-grupo" class="form-label">Código</label>
+                <div class="input-container">
+                  <i class="fa-solid fa-book-open"></i>
+                  <input
+                    id="codigo-grupo"
+                    class="p-1 rounded-4 form-control"
+                    type="text"
+                    placeholder="Código grupo"
+                    required />
+                </div>
+              </div>
+              <div class="mb-5">
+                <label for="nombre-grupo" class="form-label">
+                  Nombre grupo
+                </label>
+                <div class="input-container">
+                  <i class="fa-solid fa-people-group"></i>
+                  <input
+                    id="nombre-grupo"
+                    class="p-1 rounded-4 form-control"
+                    type="text"
+                    placeholder="Nombre grupo"
+                    required />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal">
+                  Cerrar
+                </button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seccion Footer -->
+    <section id="seccion-footer">
+      <footer>
+        <div class="container py-5">
+          <div class="row">
+            <div class="col-lg-6 text-center pt-5">
+              <img
+                id="logo-footer"
+                loading="lazy"
+                src="logo/logo-universidad-lordan.png"
+                alt="" />
+              <p class="text-start text-white pt-4 small">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ut
+                laboriosam pariatur possimus dolore error aut qui, recusandae
+                earum minus assumenda amet rem! Cum reprehenderit, quam
+                voluptate unde facilis necessitatibus. Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Sunt ut laboriosam pariatur
+                possimus dolore error aut qui, recusandae earum minus assumenda
+                amet rem! Cum reprehenderit, quam voluptate unde facilis
+                necessitatibus.
+              </p>
+            </div>
+            <div class="col-lg-6 pt-5">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1563311.8135346451!2d-76.0436729458173!3d40.06775192547199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c0fb959e00409f%3A0x2cd27b07f83f6d8d!2sNueva%20Jersey%2C%20EE.%20UU.!5e0!3m2!1ses-419!2smx!4v1684479616767!5m2!1ses-419!2smx"
+                width="500"
+                height="350"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="d-flex align-items-center justify-content-between">
+              <div class="col-lg-3 py-5">
+                <div class="redes-sociales">
+                  <h2 class="fs-3">Síguenos a través de :</h2>
+                  <div class="d-flex justify-content-between small">
+                    <div class="me-5">
+                      <div>
+                        <a href="#">
+                          <i class="fa-brands fa-linkedin mb-3 me-2"></i
+                          >Linkedin
+                        </a>
+                      </div>
+                      <div>
+                        <a href="#">
+                          <i class="fa-brands fa-square-instagram mb-3 me-2"></i
+                          >Instagram
+                        </a>
+                      </div>
+                    </div>
+                    <div>
+                      <div>
+                        <a href="#">
+                          <i class="fa-brands fa-square-facebook mb-3 me-2"></i
+                          >Facebook
+                        </a>
+                      </div>
+                      <div>
+                        <a href="#">
+                          <i class="fa-brands fa-square-whatsapp me-2"></i
+                          >Whatsapp
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 py-5 small text-white text-center">
+                <p>
+                  Copyright &copy Universidad Lordan - Todos Derechos
+                  Reservados.
+                </p>
+              </div>
+              <div class="col-lg-3 py-5 contacto small">
+                <h2 class="fs-3">Contacto</h2>
+                <div class="d-block text-start">
+                  <div>
+                    <a href="#"
+                      ><i class="fa-solid fa-square-phone me-2"></i>Teléfono</a
+                    >
+                  </div>
+                  <div>
+                    <a href="#"
+                      ><i class="fa-solid fa-envelope me-2"></i>Correo
+                      Electrónico</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./js/alumnos.js"></script>
+  </body>
+</html>
