@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Ubuntu:wght@300&display=swap");
 
 *,
-::before,
-::after {
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -14,7 +14,6 @@ html {
 
 body {
   font-family: "Ubuntu";
-  overflow-x: hidden;
 }
 
 .navbar {
@@ -81,6 +80,7 @@ body {
   padding-top: 0;
   padding-bottom: 0;
   border-radius: 0;
+  /* width: 25%; */
 }
 
 .dropdown-menu .dropdown-item:hover {
@@ -178,7 +178,7 @@ h4 {
 
 #carreras img {
   margin-bottom: 10px;
-  width: 350px;
+  width: 100%;
   height: 300px;
   object-fit: cover;
   border-radius: 8px;
@@ -219,7 +219,6 @@ h4 {
 
 #seccion-footer {
   background-color: rgba(0, 0, 0, 0.8);
-  margin-top: 150px;
 }
 
 #seccion-footer .redes-sociales a {
@@ -307,15 +306,12 @@ h4 {
   font-size: 12px;
 }
 
-#seccion-ingenieria h1 {
-  margin-top: 40px;
-  margin-bottom: 80px !important;
-}
-
 .imagen-ingenieros img {
-  height: 400px;
+  height: 100%;
   border-radius: 10px;
   transition: 1s ease;
+  width: 100%;
+  object-fit: cover;
 }
 
 .imagen-ingenieros:hover img {
@@ -323,26 +319,45 @@ h4 {
 }
 
 .descripcion-civil {
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8);
+  /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8); */
   border-radius: 10px;
 }
 
-#numero-personal h1 {
+.instalaciones .card {
+  overflow: hidden;
+}
+
+.instalaciones .card .card-body {
+  z-index: 1;
+  background-color: #fff;
+}
+
+.instalaciones .card img {
+  transition: 900ms ease;
+}
+
+.instalaciones .card:hover img {
+  transform: scale(1.2);
+}
+
+#seccion-nuestro-plantel .numero-personal {
   font-size: 50px;
 }
 
-#numero-personal h1 span {
+#seccion-nuestro-plantel .numero-personal span {
   font-size: 30px;
   color: #4acabb;
 }
 
-#laboratorios img {
+#seccion-laboratorios img {
   height: 250px;
   width: 100%;
   transition: 1s ease;
 }
 
-#laboratorios h3 {
+#seccion-laboratorios h3,
+#seccion-formacion h3,
+.card-body h3 {
   color: #4acabb;
   font-family: "DM Serif Display";
 }
@@ -356,33 +371,6 @@ h4 {
   transform: scale(1.15);
   filter: brightness(0.5);
 }
-
-/***************************************
-dashboard
-***************************************/
-/* .buscar-alumno {
-  border: 1px solid #ff8712;
-  font-family: "Ubuntu";
-  padding: 3px 8px;
-  border-radius: 5px;
-  color: #4acabb;
-  font-size: 15px;
-  transition: 900ms ease;
-}
-
-.buscar-alumno:hover {
-  background-color: #ff8712;
-  color: #fff;
-}
-
-.buscar-alumno:hover i {
-  color: #fff;
-}
-
-.buscar-alumno i {
-  color: #ff8712;
-  transition: 900ms ease;
-} */
 
 .buscar-alumno button {
   border: 1px solid #ff8712;
@@ -436,6 +424,11 @@ dashboard
   padding: 20px 0;
 }
 
+.cuenta {
+  transform: translateX(-30px);
+  padding-right: 0;
+}
+
 #formulario-alta-alumno input {
   padding-left: 30px !important;
 }
@@ -475,4 +468,231 @@ dashboard
 #formulario-asignar-materias .btn-primary:hover,
 #formulario-asignar-calificacion .btn-primary:hover {
   transform: scale(1.1) translateX(5px);
+}
+
+.encabezado {
+  font-family: "Ubuntu";
+  color: #ff8712;
+  font-weight: 300;
+}
+
+#redes-sociales-contacto {
+  background-color: #4acabb;
+  padding: 50px;
+}
+
+#redes-sociales-contacto i {
+  color: white;
+  font-size: 50px;
+  margin-right: 100px;
+}
+
+#contenido-formato-contacto {
+  background-color: rgba(102, 92, 82, 0.94);
+  border-radius: 5px;
+  /* border: 3px inset #ff8712; */
+}
+
+#contenido-formato-contacto h2 {
+  color: #ff8712;
+  font-family: "Ubuntu";
+}
+
+#formato-contacto {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url("../imagenes/estudiante-5.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 80px 0;
+}
+
+#formato-contacto input,
+#formato-contacto textarea {
+  padding: 6px 5px;
+  border-radius: 5px;
+  outline: none;
+  border: 2px solid #4acabb;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#formato-contacto select {
+  border: 2px solid #4acabb !important;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#formato-contacto select:focus {
+  border: 3px solid #4acabb !important;
+}
+
+#formato-contacto input:focus,
+#formato-contacto textarea:focus {
+  border: 3px solid #4acabb;
+}
+
+.form-check-input {
+  background-color: #ff8712 !important;
+  border: 1px solid #4acabb !important;
+}
+
+#formato-contacto button {
+  background-color: #ff8712;
+  padding: 8px 20px;
+  border: 1px solid #ff8712;
+  color: #fff;
+  border-radius: 3px;
+  transition: 800ms ease;
+}
+
+#formato-contacto button:hover {
+  transform: scale(1.15) translateX(5px);
+}
+
+#eleccion p:not(.razones) {
+  /* border: 1px solid #ff8712; */
+  padding: 70px 20px 40px 20px;
+  transform: translateY(-65px);
+}
+
+#eleccion img {
+  position: relative;
+  background-color: #4acabb;
+  padding: 15px;
+  border-radius: 50%;
+  z-index: 999;
+}
+
+#eleccion .ventajas-estudiar {
+  transition: 800ms ease;
+}
+
+#eleccion .ventajas-estudiar:hover {
+  transform: translateY(-15px);
+}
+
+.instalaciones img {
+  height: 200px;
+  width: 100%;
+}
+
+@media (max-width: 767.98px) {
+  #navbarNavDropdown {
+    text-align: center;
+  }
+
+  .navbar .nav-link,
+  .navbar .dropdown {
+    display: inline-block;
+    margin-right: 0 !important;
+  }
+
+  .navbar .nav-link:hover {
+    color: #ff8712;
+    transform: scale(1.02) translateX(10px);
+  }
+
+  .navbar .nav-link.active::before {
+    width: 100%;
+  }
+
+  .navbar .nav-link:hover::before {
+    width: 100%;
+  }
+
+  .nav-contacto {
+    margin-bottom: 20px;
+  }
+
+  .navbar-brand .movil {
+    width: 60px;
+  }
+
+  #logo-footer {
+    width: 300px;
+  }
+
+  #btn-conectar button {
+    margin-top: 10px;
+  }
+
+  #carouselExampleAutoplaying .carousel-item img {
+    height: 400px;
+    object-fit: cover;
+    filter: brightness(0.4);
+  }
+
+  #video video {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  #hero-ingenieria img {
+    height: 400px;
+    width: 100%;
+  }
+
+  #numero-personal .border-end {
+    border: 0 !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  #navbarNavDropdown {
+    text-align: center;
+  }
+
+  .navbar .nav-link,
+  .navbar .dropdown {
+    display: inline-block;
+    margin-right: 0 !important;
+  }
+
+  .navbar .nav-link:hover {
+    color: #ff8712;
+    transform: scale(1.02) translateX(10px);
+  }
+
+  .navbar .nav-link.active::before {
+    width: 100%;
+  }
+
+  .navbar .nav-link:hover::before {
+    width: 100%;
+  }
+
+  #btn-conectar button {
+    margin-top: 10px;
+  }
+
+  .navbar-brand .movil {
+    width: 60px;
+  }
+
+  #carouselExampleAutoplaying .carousel-item img {
+    height: 500px;
+    object-fit: cover;
+    filter: brightness(0.4);
+  }
+
+  #carreras img {
+    width: 100%;
+    height: 450px;
+  }
+
+  #video video {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  #numero-personal .border-end {
+    border: 0 !important;
+  }
+
+  #laboratorios img {
+    height: 350px;
+    width: 100%;
+    transition: 1s ease;
+  }
 }
